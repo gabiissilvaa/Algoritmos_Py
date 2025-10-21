@@ -1,122 +1,108 @@
-# Algoritmos_Py
+# Projetos de Automação Python 🐍
+<div align="center">
+ 
+*Este repositório abriga uma coleção de scripts de automação e web scraping desenvolvidos em **Python**. Cada projeto é focado em uma tarefa específica, desde a extração de dados de redes sociais até a coleta de notícias.*
 
-Uma coleção pequena de exemplos em Python que ilustram princípios de
-complexidade de algoritmos (notação Big-O). Cada exemplo mede tempos
-simplesmente para demonstrar o comportamento assintótico (comparação
-empírica) — não são micro-benchmarks profissionais.
+</div>
 
-## Objetivos do projeto
+## 🚀 Como Executar os Projetos
 
-- Demonstrar operações com complexidade O(1), O(log n) e O(n^2).
-- Fornecer scripts fáceis de executar para ensino e experimentação.
-- Explicar como interpretar os tempos medidos e limitações das medições.
+A maneira mais fácil de executar os projetos é através do menu interativo. Navegue até a pasta raiz `projetos_scraper`, baixe as dependências necessárias e, em seguida, execute o `main.py`:
 
-## Estrutura do repositório
-
-- `examples/constant_time.py`  — O(1): acesso por índice e operação aritmética.
-- `examples/logarithmic_time.py` — O(log n): busca binária em lista ordenada.
-- `examples/quadratic_time.py` — O(n^2): laços aninhados contando pares.
-- `README.md` — este arquivo.
-
-## Pré-requisitos
-
-- Python 3.8+ (testado com CPython 3.x). Não há dependências externas.
-- Um terminal (PowerShell no Windows foi usado nas instruções).
-
-Recomendação (opcional): criar um ambiente virtual antes de rodar os
-scripts:
-
-```powershell
-python -m venv .venv; .\.venv\Scripts\Activate.ps1
+```bash
+cd projetos_scraper
+```
+```bash
+pip install -r requirements.txt
+```
+```bash
+python main.py
 ```
 
-## Como executar
+O menu permitirá que você escolha qual automação deseja rodar.
 
-Use os comandos abaixo no PowerShell (cada comando roda um exemplo):
+---
 
-```powershell
-python .\examples\constant_time.py
-python .\examples\logarithmic_time.py
-python .\examples\quadratic_time.py
-```
+## 🤖 Projeto 1: Extrator de Biografia do Instagram
 
-Cada script imprime tempos médios para alguns tamanhos de entrada. Os
-parâmetros internos (por exemplo, número de trials) são ajustados nos
-próprios scripts para equilibrar ruído e custo computacional.
+Este bot utiliza **Selenium** para automatizar o login no Instagram, navegar até um perfil específico e extrair as informações da biografia.
 
-## Descrição dos exemplos (contratos e comportamento)
+### ✨ Principais Funcionalidades
+- **Login Seguro**: Realiza login automático utilizando credenciais armazenadas em um arquivo `.env`.
+- **Navegação Automatizada**: Acessa a página do perfil alvo.
+- **Extração Inteligente**: Coleta o texto da biografia, tentando filtrar informações irrelevantes.
+- **Tratamento de Pop-ups**: Lida com as caixas de diálogo de "Salvar informações" e "Ativar notificações".
+- **Saída Estruturada**: Salva os dados extraídos no arquivo `bio_instagram.json`.
+ 
+### 🛠️ Tecnologias e Dependências
+- **Tecnologias**: Python, Selenium.
+- **Dependências**: `selenium`, `webdriver-manager`, `python-dotenv`.
 
-- `constant_time.py`
-	- Entrada: uma lista `lst` de tamanho n.
-	- Saída: tempo médio por operação (acesso por índice repetido).
-	- Complexidade: O(1) por operação — tempo por operação não cresce com n.
-	- Observação: lista deve ter pelo menos 1 elemento (lista vazia gera
-		IndexError).
+### 📖 Mais Informações
+Para instruções detalhadas de configuração e uso, consulte o README específico:  
+➡️ **projetos_scraper/projeto_bot/readme/bot_instagram.md** 
 
-- `logarithmic_time.py`
-	- Entrada: lista ordenada `arr` de tamanho n e um `target` aleatório.
-	- Saída: tempo médio por busca (busca binária iterativa).
-	- Complexidade: O(log n) por busca — cada passo corta pela metade o
-		espaço de busca.
-	- Observação: retorna -1 quando não encontra o elemento.
+## 📰 Projeto 2: Extrator de Notícias do G1
 
-- `quadratic_time.py`
-	- Entrada: lista `arr` de tamanho n e um `target` fixo.
-	- Saída: tempo médio por execução da contagem de pares (laços aninhados).
-	- Complexidade: O(n^2) — todos os pares i<j são verificados.
-	- Observação: tempo cresce muito rápido com n; usar n moderado para
-		experimentos locais.
+Este scraper utiliza **Requests** e **BeautifulSoup** para extrair as principais manchetes da página inicial do portal de notícias G1.
 
-## Exemplos de saída (execução local)
+### ✨ Principais Funcionalidades
+- **Coleta Rápida**: Acessa o G1 e extrai os dados das notícias sem a necessidade de um navegador.
+- **Extração de Dados**: Captura o título, link e resumo de cada manchete.
+- **Saída Organizada**: Salva a lista de notícias no arquivo `manchetes.json`.
 
-- `constant_time.py` (exemplo):
+### 🛠️ Tecnologias e Dependências
+- **Tecnologias**: Python, Requests, BeautifulSoup.
+- **Dependências**: `requests`, `beautifulsoup4`.
 
-	n=1_000    avg time/op ≈ 0.052 µs
-	n=10_000   avg time/op ≈ 0.079 µs
-	n=100_000  avg time/op ≈ 0.066 µs
+### 📖 Mais Informações
+Para instruções detalhadas de uso e exemplos, consulte o README específico:
 
-- `logarithmic_time.py` (exemplo):
+➡️ **projetos_scraper/projeto_noticias/readme/extrator_noticias.md**
 
-	n=1_000    avg time/search ≈ 1.59 µs
-	n=10_000   avg time/search ≈ 2.19 µs
-	n=100_000  avg time/search ≈ 2.97 µs
+## 📝 Observações Gerais
+- Cada projeto é autocontido em sua respectiva pasta (`projeto_bot` e `projeto_noticias`).
+- Antes de executar um script pela primeira vez, certifique-se de instalar suas dependências.
 
-- `quadratic_time.py` (exemplo):
+<br>
 
-	n=100   avg time/run ≈ 0.000403 s
-	n=200   avg time/run ≈ 0.000869 s
-	n=400   avg time/run ≈ 0.004309 s
+<div align="center">
 
-Observação: valores numéricos são da minha execução local; sua máquina
-poderá apresentar números diferentes.
+**Link do Vídeo no Youtube**  
+Aqui está um vídeo da aplicação funcionando 
+</div>
 
-## Interpretação das medições
+<div align="center">
+  
+[![YouTube](https://img.shields.io/badge/YouTube-000?style=for-the-badge&logo=youtube&logoColor=FF0000)](https://youtu.be/skJlBF1jukc)
+</div>
 
-- Big-O descreve crescimento assintótico. As medições mostram comportamento
-	empírico para pequenos conjuntos de tamanhos n e ajudam a visualizar a
-	diferença entre classes de complexidade.
-- Variações no tempo (ruído) vêm de cache, escalonamento do SO, diferenças
-	na implementação do Python e outros fatores. Para reduzir ruído, aumente
-	o número de trials nos scripts ou use ferramentas como `timeit`.
+### **👨‍💻 Desenvolvedoras**
 
-## Troubleshooting
+<div align="center">
 
-- Recebe `IndexError` no `constant_time.py`? Certifique-se de que a lista
-	gerada não é vazia (os scripts atuais usam n >= 1).
-- Execuções muito lentas no `quadratic_time.py`? Use valores menores de n
-	(p.ex. 100, 200) ou reduza `trials` no script.
-- Se `python` não for reconhecido, verifique sua instalação do Python e a
-	variável PATH.
+**Gabriela Silva**  
+*Cientista da Computação | Desenvolvedora*
+</div>
 
-## Sugestões de continuidade
+<div align="center">
+  
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-000?style=for-the-badge&logo=linkedin&logoColor=FF00F6&color:FFF)](https://www.linkedin.com/in/gabrielab-da-silva/)
+[![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=github&logoColor=FF00F6&color:FFF)](https://github.com/gabiissilvaa)
 
-- Adicionar exemplos para O(n) (varredura linear) e O(n log n) (merge
-	sort com contagem de tempo).
-- Gerar gráficos com `matplotlib` comparando tempos empíricos por n.
-- Incluir testes automatizados e um pequeno benchmark harness que
-	serializa resultados em CSV para análise posterior.
+</div>
 
-## Licença
+<div align="center">
 
-Sinta-se livre para usar e adaptar estes exemplos para fins educacionais.
+**Laísa Albuquerque**  
+*Cientista da Computação | Desenvolvedora*
+</div>
 
+<div align="center">
+  
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-000?style=for-the-badge&logo=linkedin&logoColor=FF00F6&color:FFF)](https://www.linkedin.com/in/laisaalbdev/)
+[![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=github&logoColor=FF00F6&color:FFF)](https://github.com/LaisaAlb)
+
+
+
+</div>
