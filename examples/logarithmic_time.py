@@ -1,9 +1,3 @@
-"""
-Exemplo: Complexidade logarítmica O(log n)
-
-Este script demonstra busca binária em uma lista ordenada — cada iteração corta
-o espaço de busca pela metade. Mede tempo médio por busca para diferentes n.
-"""
 from time import perf_counter
 import random
 

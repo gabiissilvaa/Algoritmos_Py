@@ -1,10 +1,3 @@
-"""
-Exemplo: Complexidade quadrática O(n^2)
-
-Este script demonstra um algoritmo de comparação todos-contra-todos (laços
-aninhados) que conta pares com soma igual a um valor alvo. Mede tempos para
-vários tamanhos de entrada para ilustrar crescimento quadrático.
-"""
 from time import perf_counter
 import random
 

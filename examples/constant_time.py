@@ -1,12 +1,3 @@
-"""
-Exemplo: Complexidade constante O(1)
-
-Este script demonstra uma operação que é independente do tamanho da entrada:
-- acesso por índice em uma lista (lista[0]) e uma operação aritmética simples.
-
-Ele mede o tempo médio por operação para diferentes tamanhos de lista. Você verá
-que o tempo por operação permanece (aproximadamente) constante quando n aumenta.
-"""
 from time import perf_counter
 import random
 
